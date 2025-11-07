@@ -34,6 +34,11 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{secrets.azure_connection}}
+      - name: step 10
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: khunWebApi
+          package: ./publish
         
 
 

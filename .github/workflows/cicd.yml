@@ -31,6 +31,9 @@ jobs:
       - name: step 8
         run: ls -l ./publish
       - name: step 9 # se loguer sur azure
+        uses: azure/login@v2
+        with:
+          creds: ${{secrets.azure_connection}}
       - name: step 10 # publier sur azure
         
 

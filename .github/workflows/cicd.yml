@@ -13,3 +13,5 @@ jobs:
       # premiere étape
       - name: step 1
         run: echo hello
+      - name: step 2
+        run: ls -l # lister les fichiers

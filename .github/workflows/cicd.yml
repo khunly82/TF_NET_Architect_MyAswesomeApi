@@ -14,4 +14,14 @@ jobs:
       - name: step 1
         run: echo hello
       - name: step 2
+        # rapatrier le code sur le runner
+        uses: actions/checkout@v5
+      - name: step 3
         run: ls -l # lister les fichiers
+
+
+
+
+
+
+        

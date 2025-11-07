@@ -30,6 +30,9 @@ jobs:
         run: dotnet publish --output ./publish
       - name: step 8
         run: ls -l ./publish
+      - name: step 9 # se loguer sur azure
+      - name: step 10 # publier sur azure
+        
 
 
 

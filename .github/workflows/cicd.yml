@@ -1,11 +1,49 @@
 on:
-  push:
+  workflow_dispatch: # autoriser le déclechement manuel du script
+  push: # declenche le script lorque l'on "push" sur master
     branches: 
       - master
 
 jobs:
+  # nom du premier job 
   hello:
+    # sur quel runner le code va etre exécuter
     runs-on: ubuntu-latest
     steps:
+      # premiere étape
       - name: step 1
         run: echo hello
+      - name: step 2
+        # rapatrier le code sur le runner
+        uses: actions/checkout@v5
+      - name: step 3
+        run: ls -l # lister les fichiers
+      - name: step 4
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '8.x'
+      - name: step 5
+        run: dotnet restore
+      - name: step 6
+        run: dotnet build
+      - name: step 7
+        run: dotnet publish --output ./publish
+      - name: step 8
+        run: ls -l ./publish
+      - name: step 9 # se loguer sur azure
+        uses: azure/login@v2
+        with:
+          creds: ${{secrets.azure_connection}}
+      - name: step 10
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: khunWebApi
+          package: ./publish
+        
+
+
+
+
+
+
+        

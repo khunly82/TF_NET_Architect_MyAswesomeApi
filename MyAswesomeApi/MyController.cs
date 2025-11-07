@@ -27,6 +27,7 @@ namespace MyAswesomeApi
 
             // Exécuter une requète SQL
             // Dapper
+            
             List<Pokemon> pokemons = connection.Query<Pokemon>("SELECT * FROM Pokemons").ToList();
 
             // renvoyer tous les pokémons

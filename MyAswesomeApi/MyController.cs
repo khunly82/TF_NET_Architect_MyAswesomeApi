@@ -14,7 +14,7 @@ namespace MyAswesomeApi
         [HttpGet("api/hello")]
         public string Hello(string nom = "world")
         {
-            return $"Hello {nom} !!!!!!";
+            return $"Bonjour {nom} !!!!!!";
         }
 
         [HttpGet("api/pokemons")]
